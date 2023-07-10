@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: worker1-kali
+spec:
+  restartPolicy: Always
+  containers:
+  - name: kali
+    image: kalilinux/kali-rolling
+    imagePullPolicy: IfNotPresent
+    command: ["/bin/sh", "-ec", "while :; do echo 'worker1-kali'; sleep 3600 ; done"]
+  nodeSelector:
+    disktype: worker1
+  dnsConfig:
+    nameservers:
+      - 8.8.8.8
+      - 203.252.225.5
