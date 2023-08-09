@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: 10.0.10.142-ubuntugui
+spec:
+  containers:
+  - name: ubuntu
+    image: minkoong/ubuntu_gui
+    command: ["/sbin/init"]
+  nodeSelector:
+    disktype: 10.0.10.142
